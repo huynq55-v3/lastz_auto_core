@@ -1,0 +1,12 @@
+[package]
+name = "lastz_auto_core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Thư viện để gọi các hàm API cấp thấp của Linux/Android (như process_vm_readv)
+libc = "0.2"
+# Hỗ trợ tìm kiếm PID của game nhanh chóng
+sysinfo = "0.30"
+# Xử lý chuỗi và biểu thức chính quy (dùng để bóc tách file /proc/maps)
+regex = "1.10"
