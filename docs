@@ -1,0 +1,115 @@
+Chào Huy, để xây dựng một hệ thống Auto hoàn chỉnh (Manager trên Windows điều khiển Agent Linux đọc/ghi bộ nhớ game), việc xác định đúng các class "xương sống" là bước sống còn. 
+
+Dưới đây là danh sách 15 class có ảnh hưởng lớn nhất đến luồng hoạt động (Core Logic & Data) của hệ thống game này, được phân chia theo từng nhóm chức năng để ông dễ dàng map vào bộ nhớ.
+
+*(Lưu ý: Game Unity biên dịch bằng IL2CPP sẽ thay đổi địa chỉ Offset sau mỗi bản cập nhật. Để lấy chính xác con số Offset `0x...` cho phiên bản game hiện hành, ông hãy mở file `Assembly-CSharp.dll` trong thư mục `DummyDlls` bằng **dnSpy** và tìm đến các class này).*
+
+### 1. Nhóm Core System (Cổng giao tiếp và Logic nền tảng)
+
+**1. `GameEntry` (Static Class)**
+* **Vai trò:** Điểm truy cập toàn cục (Gateway). Mọi Manager khác đều được khởi tạo và gắn vào đây. Ông chỉ cần tìm được Base Address của class này là nắm được toàn bộ game.
+* **Các trường tĩnh (Static Fields) quan trọng:**
+    * `Network` (Kiểu: `NetworkManager`): Trỏ đến hệ thống mạng.
+    * `Lua` (Kiểu: `XLuaManager`): Trỏ đến môi trường chạy script.
+    * `Resource` (Kiểu: `ResourceManager`): Quản lý tài nguyên bộ nhớ.
+
+**2. `XLuaManager`**
+* **Vai trò:** Nắm giữ toàn bộ linh hồn của game, vì các tính năng gameplay chính (thu thập, đánh quái, tính toán) được viết bằng Lua.
+* **Trường Non-static quan trọng:**
+    * `luaEnv` (Kiểu: `XLua.LuaEnv`): Con trỏ trỏ đến máy ảo Lua (Lua Virtual Machine). Từ đây ông có thể inject script qua Agent.
+* **Trường Static quan trọng:**
+    * `LuaStackCount` (Kiểu: `int`): Theo dõi bộ nhớ của Lua.
+
+**3. `NetworkManager`**
+* **Vai trò:** Kênh giao tiếp duy nhất giữa Client và Server.
+* **Trường Non-static quan trọng:**
+    * `smartFox` (Kiểu: `Sfs2X.SmartFox`): Core socket của SmartFox Server.
+    * `_futureManager` (Kiểu: `FutureManager`): Xử lý các luồng dữ liệu gói tin bất đồng bộ.
+    * `worldParseThreadStart` (Kiểu: `bool`): Trạng thái luồng phân tích map.
+
+**4. `Sfs2X.SmartFox`**
+* **Vai trò:** Thư viện quản lý kết nối TCP/UDP cấp thấp. Nơi lý tưởng nhất để hook làm Packet Sniffer/Injector ngầm.
+* **Trường Non-static quan trọng:**
+    * `bitSwarm` (Kiểu: `BitSwarmClient`): Quản lý luồng bit và mã hóa/giải mã packet.
+    * `mySelf` (Kiểu: `User`): Chứa ID và Session network của thiết bị.
+
+### 2. Nhóm User Data (Thông tin tài khoản và Tài nguyên)
+
+**5. `GlobalDataManager`**
+* **Vai trò:** Lưu trữ các thông tin vĩ mô của tài khoản đang đăng nhập.
+* **Trường Non-static quan trọng:**
+    * `PlayerInfo` (Kiểu: `ReportPlayerInfo`): ID, Tên, Cấp độ, Liên minh.
+    * `LoginServerInfo` (Kiểu: `Object`): Dữ liệu IP, Port của máy chủ game hiện tại.
+
+**6. `CustomDataManager`**
+* **Vai trò:** Nơi lưu trữ trạng thái tài nguyên, túi đồ (Inventory). Rất quan trọng để kiểm tra điều kiện trước khi Auto nâng cấp nhà.
+* **Trường Non-static quan trọng:**
+    * `resourceDict` (Kiểu: `Dictionary<int, ResourceInfo>`): Danh sách Vàng, Gỗ, Đá... hiện có.
+    * `itemDict` (Kiểu: `Dictionary<int, int>`): Danh sách ID vật phẩm và số lượng trong kho.
+
+### 3. Nhóm World Map (Bản đồ thế giới và Tọa độ)
+
+**7. `WorldManagerBase`**
+* **Vai trò:** Quản lý lưới (grid) của bản đồ lớn, tính toán khoảng cách và thuật toán tìm đường (A* hoặc RVO).
+* **Trường Non-static quan trọng:**
+    * `MapData` (Kiểu: `WorldZoneMapData`): Dữ liệu logic toàn bộ các ô (tile) trên map.
+    * `CurrentZone` (Kiểu: `WorldZone`): Phân khu khu vực người chơi đang đứng.
+
+**8. `WorldScene`**
+* **Vai trò:** Quản lý các thực thể (Entity) vật lý đang tồn tại trên bản đồ (như Mỏ tài nguyên, Quái vật, Thành địch).
+* **Trường Non-static quan trọng:**
+    * `entities` (Kiểu: `List<WorldPointInfo>`): Danh sách các mục tiêu. Quét danh sách này sẽ có toàn bộ radar map cho auto dò quái.
+
+**9. `WorldPointInfo`**
+* **Vai trò:** Dữ liệu chi tiết của một điểm trên bản đồ.
+* **Trường Non-static quan trọng:**
+    * `pointType` (Kiểu: `WorldPointType`): Loại mục tiêu (Quái, Mỏ, Thành).
+    * `position` (Kiểu: `Vector2Int`): Tọa độ X, Y trên map server.
+    * `level` (Kiểu: `int`): Cấp độ của mỏ/quái.
+
+### 4. Nhóm Military & Combat (Quân sự và Chiến đấu)
+
+**10. `MarchStatus`**
+* **Vai trò:** Quản lý trạng thái của một đạo quân đang xuất chinh.
+* **Trường Non-static quan trọng:**
+    * `marchId` (Kiểu: `int`): ID định danh của đạo quân.
+    * `targetPos` (Kiểu: `Vector2Int`): Tọa độ đích đến.
+    * `state` (Kiểu: `int`): Trạng thái (Đang tiến quân, Đang thu thập, Đang quay về).
+
+**11. `ArmyUnitInfo`**
+* **Vai trò:** Chi tiết cấu tạo của một đạo quân.
+* **Trường Non-static quan trọng:**
+    * `unitId` (Kiểu: `int`): ID định dạng loại lính (VD: Bộ binh tier 1).
+    * `count` (Kiểu: `int`): Số lượng lính.
+    * `hp` / `attack` (Kiểu: `int`): Chỉ số cơ bản.
+
+**12. `CombatUnit`**
+* **Vai trò:** Quản lý logic chiến đấu, áp dụng sát thương và buff.
+* **Trường Non-static quan trọng:**
+    * `currentHp` (Kiểu: `int`): Máu thực tế trong trận.
+    * `buffs` (Kiểu: `List<ArmyUnitBuff>`): Các hiệu ứng tăng ích đang áp dụng.
+
+**13. `BattleReport`**
+* **Vai trò:** Chứa dữ liệu tổng kết sau khi trận đánh kết thúc.
+* **Trường Non-static quan trọng:**
+    * `isWin` (Kiểu: `bool`): Kết quả chiến đấu.
+    * `rewardItems` (Kiểu: `List<ReportRewardItem>`): Chiến lợi phẩm thu được. Cần đọc để báo cáo thống kê auto cày cuốc.
+
+### 5. Nhóm Build & Quest (Nội chính)
+
+**14. `BuildingState`**
+* **Vai trò:** Theo dõi trạng thái của từng công trình trong thành phố.
+* **Trường Non-static quan trọng:**
+    * `buildingId` (Kiểu: `int`): ID công trình.
+    * `level` (Kiểu: `int`): Cấp độ hiện tại.
+    * `upgradeEndTime` (Kiểu: `long`): Unix timestamp (thời gian) hoàn thành nâng cấp.
+
+**15. `TaskManager` (hoặc `Task`)**
+* **Vai trò:** Quản lý tiến độ nhiệm vụ hàng ngày/chính tuyến.
+* **Trường Non-static quan trọng:**
+    * `activeTasks` (Kiểu: `List<Task>`): Tiến độ công việc đang thực thi.
+    * `claimedRewards` (Kiểu: `List<int>`): Danh sách ID phần thưởng đã nhận để tránh gửi request lỗi gây chú ý đến server.
+
+---
+**Gợi ý cấu trúc cho luồng đọc Memory của Agent:** Ông hãy tận dụng lại file `script.json` từ Il2CppDumper để đọc địa chỉ tĩnh (Static Address) của class `GameEntry`. Khi đã lấy được con trỏ của `GameEntry`, ông sử dụng kỹ thuật "Pointer Chaining" (đọc con trỏ lồng nhau) đi lần lượt qua `GameEntry + Offset_Network -> smartFox + Offset_bitSwarm -> v.v...`. Như vậy, Agent Linux của ông chỉ cần bắt đầu từ 1 địa chỉ duy nhất để với tới toàn bộ cấu trúc dữ liệu khổng lồ này.
+====================================================================================================

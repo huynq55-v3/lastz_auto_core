@@ -89,4 +89,8 @@ impl AdbManager {
             }
         }
     }
+
+    pub fn run_command(&self, cmd: &str) -> Result<String, String> {
+        self.run_adb(&["shell", &format!("su -c '{}'", cmd)])
+    }
 }

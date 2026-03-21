@@ -1,0 +1,1 @@
+cargo build -p lastz_auto_agent --target x86_64-linux-android --release && cargo run -p lastz_auto_host --release -- --instance 0
