@@ -206,88 +206,115 @@ pub fn inject_hello_world(pid: u32, _base: usize, _xlua_ptr: usize) {
                         try {{
                             console.log("\n[!!!] TRÚNG BẪY x86_64! Đang tải thư viện qua Houdini...");
                             
-                            // 1. Tải libil2cpp.so qua Cầu nối để lấy Handle
-                            // Đôi khi Houdini cần đường dẫn tuyệt đối tĩnh. Ta quét maps để lấy
-                            var lib_path = "libil2cpp.so";
-                            try {{
-                                var fd = new File("/proc/self/maps", "r");
-                                var content = fd.readText();
-                                fd.close();
-                                var lines = content.split("\n");
-                                for (var i = 0; i < lines.length; i++) {{
-                                    if (lines[i].indexOf("libil2cpp.so") !== -1) {{
-                                        var parts = lines[i].trim().split(" ");
-                                        lib_path = parts[parts.length - 1];
+                            // Cấu hình Handle (Đã xác nhận thành công với RTLD_DEFAULT = -1)
+                            var handle = ptr("-1");
+                            
+                            // Các hàm IL2CPP chuẩn cần được "Bắc Cầu" (Trampolined)
+                            var exports_to_bridge = [
+                                "il2cpp_domain_get",
+                                "il2cpp_thread_attach",
+                                "il2cpp_domain_get_assemblies",
+                                "il2cpp_assembly_get_image",
+                                "il2cpp_class_from_name",
+                                "il2cpp_class_get_method_from_name",
+                                "il2cpp_string_new",
+                                "il2cpp_runtime_invoke"
+                            ];
+                            
+                            var api = {{}};
+                            var success_count = 0;
+                            var shorty = Memory.allocUtf8String("V");
+                            
+                            console.log("[*] Đang xin cấp quyền (Trampoline) cho " + exports_to_bridge.length + " hàm IL2CPP...");
+                            for (var i = 0; i < exports_to_bridge.length; i++) {{
+                                var name = exports_to_bridge[i];
+                                var name_ptr = Memory.allocUtf8String(name);
+                                var tramp = get_tramp(handle, name_ptr, shorty, 1);
+                                if (!tramp.isNull()) {{
+                                    api[name] = tramp;
+                                    success_count++;
+                                }} else {{
+                                    console.log("[-] Lỗi xin biên dịch: " + name);
+                                }}
+                            }}
+                            
+                            if (success_count < exports_to_bridge.length) {{
+                                console.log("[-] Không cấp đủ quyền, hủy bỏ chiến dịch.");
+                                hooked = true;
+                                return;
+                            }}
+                            
+                            console.log("[+] Đã bắc cầu thành công " + success_count + " IL2CPP APIs.");
+                            
+                            // Định nghĩa x86_64 Interface (Vỏ bọc cho các hàm ARM64 thực sự)
+                            var fn_domain_get = new NativeFunction(api.il2cpp_domain_get, 'pointer', []);
+                            var fn_thread_attach = new NativeFunction(api.il2cpp_thread_attach, 'pointer', ['pointer']);
+                            var fn_get_assemblies = new NativeFunction(api.il2cpp_domain_get_assemblies, 'pointer', ['pointer', 'pointer']);
+                            var fn_get_image = new NativeFunction(api.il2cpp_assembly_get_image, 'pointer', ['pointer']);
+                            var fn_class_from_name = new NativeFunction(api.il2cpp_class_from_name, 'pointer', ['pointer', 'pointer', 'pointer']);
+                            var fn_get_method = new NativeFunction(api.il2cpp_class_get_method_from_name, 'pointer', ['pointer', 'pointer', 'int']);
+                            var fn_string_new = new NativeFunction(api.il2cpp_string_new, 'pointer', ['pointer']);
+                            var fn_runtime_invoke = new NativeFunction(api.il2cpp_runtime_invoke, 'pointer', ['pointer', 'pointer', 'pointer', 'pointer']);
+                            
+                            // ========================
+                            // QUÁ TRÌNH THỰC THI CHÍNH
+                            // ========================
+
+                            // 1. Thread Attach
+                            var domain = fn_domain_get();
+                            fn_thread_attach(domain);
+                            console.log("[+] Đã liên kết Thread với ARM64 (Domain: " + domain + ")");
+                            
+                            // 2. Tìm MethodInfo của XLuaManager.SafeDoString
+                            var size_ptr = Memory.alloc(8);
+                            var assemblies = fn_get_assemblies(domain, size_ptr);
+                            var count = Process.pointerSize === 8 ? size_ptr.readU64() : size_ptr.readU32(); 
+                            
+                            var target_method = ptr(0);
+                            var str_empty = Memory.allocUtf8String("");
+                            var str_XLuaManager = Memory.allocUtf8String("XLuaManager");
+                            var str_SafeDoString = Memory.allocUtf8String("SafeDoString");
+                            
+                            for (var i = 0; i < count; i++) {{
+                                var assembly = assemblies.add(i * Process.pointerSize).readPointer();
+                                var image = fn_get_image(assembly);
+                                var klass = fn_class_from_name(image, str_empty, str_XLuaManager);
+                                if (!klass.isNull()) {{
+                                    target_method = fn_get_method(klass, str_SafeDoString, 1);
+                                    if (!target_method.isNull()) {{
+                                        console.log("[+++] TÌM THẤY CỐT LÕI: SafeDoString MethodInfo @ " + target_method);
                                         break;
                                     }}
                                 }}
-                            }} catch(e) {{}}
-                            
-                            console.log("[*] Đường dẫn thực tế libil2cpp: " + lib_path);
-
-                            var handle_1 = loadLibrary(Memory.allocUtf8String(lib_path), 1);
-                            var handle_2 = loadLibrary(Memory.allocUtf8String("libil2cpp.so"), 1);
-                            
-                            var handles_to_test = [
-                                {{ name: "Absolute Path", ptr: handle_1 }},
-                                {{ name: "File Name", ptr: handle_2 }},
-                                {{ name: "RTLD_DEFAULT (-1)", ptr: ptr("-1") }},
-                                {{ name: "NULL Handle (0)", ptr: ptr("0") }},
-                            ];
-
-                            var name_domain = Memory.allocUtf8String("il2cpp_domain_get");
-                            var name_attach = Memory.allocUtf8String("il2cpp_thread_attach");
-                            var shorty = Memory.allocUtf8String("V"); // JNI shorty
-                            
-                            var t_domain = ptr(0);
-                            var t_attach = ptr(0);
-                            var working_handle_name = "None";
-
-                            for (var i = 0; i < handles_to_test.length; i++) {{
-                                var h = handles_to_test[i];
-                                if (!h.ptr.isNull() || h.name.indexOf("0") !== -1) {{
-                                    console.log("    - Testing Handle [" + h.name + "]: " + h.ptr);
-                                    try {{
-                                        var td = get_tramp(h.ptr, name_domain, shorty, 1);
-                                        var ta = get_tramp(h.ptr, name_attach, shorty, 1);
-                                        if (!td.isNull() && !ta.isNull()) {{
-                                            t_domain = td;
-                                            t_attach = ta;
-                                            working_handle_name = h.name;
-                                            console.log("      [+++] THÀNH CÔNG TẠI HANDLE NÀY!");
-                                            break;
-                                        }} else {{
-                                            console.log("      [-] Trả về NULL.");
-                                        }}
-                                    }} catch(e) {{
-                                        console.log("      [-] CRASH khi dùng handle này.");
-                                    }}
-                                }}
                             }}
-
-                            if (t_domain.isNull() || t_attach.isNull()) {{
-                                console.log("[-] Không tìm được Handle nào hoạt động.");
+                            
+                            if (target_method.isNull()) {{
+                                console.log("[-] Không tìm thấy SafeDoString trong Assembly-CSharp.");
+                                hooked = true;
                                 return;
                             }}
-
-                            console.log("\n[+] Dùng Trampoline Domain: " + t_domain);
-                            console.log("[+] Dùng Trampoline Attach: " + t_attach);
-
-                            if (!t_domain.isNull() && !t_attach.isNull()) {{
-                                var fn_domain_get = new NativeFunction(t_domain, 'pointer', []);
-                                var fn_attach = new NativeFunction(t_attach, 'pointer', ['pointer']);
-                                
-                                // Gọi hàm qua Bridge
-                                var domain = fn_domain_get();
-                                console.log("[+] GỌI THÀNH CÔNG! Domain: " + domain);
-                                fn_attach(domain);
-                                console.log("[++] XÁC NHẬN: Cầu truyền thông x86_64 -> ARM64 đã THÔNG SUỐT hoàn toàn!");
-                                
+                            
+                            // 3. Chuẩn bị Instance và gọi Script
+                            var xlua_instance = ptr("0x{:X}");
+                            if (xlua_instance.isNull()) {{
+                                console.log("[-] Pointer XLuaManager lỗi/trống từ Rust.");
                                 hooked = true;
-                            }} else {{
-                                console.log("[-] Không tạo được bàn nhún. Dấu hiệu sai Shorty hoặc hàm không được Export.");
-                                hooked = true;
+                                return;
                             }}
+                            
+                            console.log("[*] Bơm LUA vào địa chỉ Instance: " + xlua_instance);
+                            var lua_script = Memory.allocUtf8String("CS.UnityEngine.Debug.LogError('====== FRIDA BRIDGE X86 -> ARM64 TỪ LASTZ_AUTO ======')");
+                            var il2cpp_str = fn_string_new(lua_script);
+                            
+                            var params = Memory.alloc(Process.pointerSize);
+                            params.writePointer(il2cpp_str);
+                            var exc = Memory.alloc(Process.pointerSize);
+                            exc.writePointer(ptr(0));
+                            
+                            fn_runtime_invoke(target_method, xlua_instance, params, exc);
+                            
+                            console.log("[+++++] CHIẾN THẮNG TUYỆT ĐỐI! NHIỆM VỤ ĐÃ HOÀN TẤT!");
+                            hooked = true;
                         }} catch(e) {{
                             console.log("[-] Lỗi khi tải Cầu: " + e.message);
                             hooked = true;
@@ -302,7 +329,7 @@ pub fn inject_hello_world(pid: u32, _base: usize, _xlua_ptr: usize) {
             }}
         }})();
         "#,
-        _base
+        _xlua_ptr
     );
 
     let mut options = ScriptOption::default();
