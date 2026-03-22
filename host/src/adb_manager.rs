@@ -58,8 +58,18 @@ impl AdbManager {
     }
 
     pub fn connect(&self) -> Result<(), String> {
-        let output = self.run_adb_no_serial(&["connect", &self.serial])?;
-        println!("[DEBUG] ADB Connect ({}): {}", self.serial, output.trim());
+        // Thử connect với serial hiện tại
+        let _ = self.run_adb_no_serial(&["connect", &self.serial]);
+        
+        // Nếu là emulator-xxxx, đôi khi cần dùng 127.0.0.1:port
+        if self.serial.starts_with("emulator-") {
+            if let Some(port_str) = self.serial.strip_prefix("emulator-") {
+                if let Ok(port) = port_str.parse::<u32>() {
+                    let alt_serial = format!("127.0.0.1:{}", port);
+                    let _ = self.run_adb_no_serial(&["connect", &alt_serial]);
+                }
+            }
+        }
         Ok(())
     }
 
@@ -92,5 +102,30 @@ impl AdbManager {
 
     pub fn run_command(&self, cmd: &str) -> Result<String, String> {
         self.run_adb(&["shell", &format!("su -c '{}'", cmd)])
+    }
+
+    pub fn deploy_frida_server(&self, local_path: &str) -> Result<(), String> {
+        let remote_path = "/data/local/tmp/frida-server";
+        println!("[*] Đang đẩy Frida Server lên thiết bị...");
+        self.push_file(local_path, remote_path)?;
+        
+        println!("[*] Đang cấp quyền thực thi cho Frida Server...");
+        self.run_command(&format!("chmod 777 {}", remote_path))?;
+        
+        println!("[*] Đang khởi động Frida Server...");
+        // Chạy Frida Server trong background và chuyển hướng output để tránh treo Terminal host
+        let start_cmd = format!("su -c '{} -D > /dev/null 2>&1 &'", remote_path);
+        let _ = Command::new(&self.adb_path)
+            .args(&["-s", &self.serial, "shell", &start_cmd])
+            .status()
+            .map_err(|e| e.to_string())?;
+        
+        println!("[*] Đang chờ Frida Server ổn định (2s)...");
+        std::thread::sleep(std::time::Duration::from_secs(2));
+
+        println!("[*] Đang Forward port Frida (27042)...");
+        let _ = self.forward_port(27042, 27042);
+        
+        Ok(())
     }
 }

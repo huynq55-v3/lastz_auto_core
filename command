@@ -1,1 +1,1 @@
-cargo build -p lastz_auto_agent --target x86_64-linux-android --release && cargo run -p lastz_auto_host --release -- --instance 0
+$env:LIBCLANG_PATH = "C:\Program Files\LLVM\bin"; cargo build -p lastz_auto_agent --target x86_64-linux-android --release && cargo run -p lastz_auto_host --release -- --instance 0
