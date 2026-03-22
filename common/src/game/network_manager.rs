@@ -1,4 +1,4 @@
-use crate::memory_interface::MemoryInterface;
+// use crate::memory_interface::MemoryInterface;
 
 pub struct NetworkManager {
     pub address: usize,

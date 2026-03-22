@@ -3,8 +3,7 @@ mod memory;
 
 use adb_manager::AdbManager;
 use clap::Parser;
-use common::game::{GameEntry, NetworkManager, GlobalDataManager};
-use common::memory_interface::MemoryInterface;
+use common::game::{GameEntry, GlobalDataManager, NetworkManager};
 use common::GameContext;
 use memory::RemoteMemory;
 use std::io::{BufRead, BufReader, Read, Write};
@@ -106,12 +105,31 @@ fn main() {
 
             // Gửi PID cho Agent
             let _ = stream.write_all(format!("SET_PID {}\n", pid).as_bytes());
-            
+
             // Đọc phản hồi OK từ Agent (đọc từng byte để tránh BufReader ăn mất dữ liệu sau đó)
             let mut ok_buf = [0u8; 1];
             loop {
                 let _ = stream.read_exact(&mut ok_buf);
-                if ok_buf[0] == b'\n' { break; }
+                if ok_buf[0] == b'\n' {
+                    break;
+                }
+            }
+
+            // Gửi lệnh SCAN để tìm Base thật
+            println!("[*] Đang yêu cầu Agent quét tìm Base thực sự (Bypass Packer)...");
+            let _ = stream.write_all(b"SCAN\n");
+
+            // Đọc kết quả quét
+            let mut scan_reader = BufReader::new(stream.try_clone().unwrap());
+            loop {
+                let mut line = String::new();
+                if scan_reader.read_line(&mut line).is_err() {
+                    break;
+                }
+                if line.trim() == "SCAN_END" {
+                    break;
+                }
+                println!("    {}", line.trim());
             }
 
             let mut ctx = GameContext::default();

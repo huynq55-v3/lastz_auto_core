@@ -49,10 +49,10 @@ impl AdbManager {
         self.run_adb(&["shell", &format!("su -c 'chmod 777 {}'", remote_path)])?;
         
         // 3. Chạy Agent quyền root trong background
-        let cmd = format!("su -c '{} &'", remote_path);
-        Command::new(&self.adb_path)
+        let cmd = format!("su -c '{} > /dev/null 2>&1 &'", remote_path);
+        let _ = Command::new(&self.adb_path)
             .args(&["-s", &self.serial, "shell", &cmd])
-            .spawn()
+            .status()
             .map_err(|e| e.to_string())?;
         Ok(())
     }

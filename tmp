@@ -1,0 +1,236 @@
+==== Các hàm (Methods) liên quan đến GameEntry ====
+
+Hex Address : 0x3727A90
+Signature   : UnityGameFramework_Runtime_BaseComponent_o* GameEntry__get_GameBase (const MethodInfo* method);
+
+Hex Address : 0x3727AD8
+Signature   : void GameEntry__set_GameBase (UnityGameFramework_Runtime_BaseComponent_o* value, const MethodInfo*
+              method);
+
+Hex Address : 0x3727B30
+Signature   : UnityGameFramework_Runtime_EventComponent_o* GameEntry__get_Event (const MethodInfo* method);
+
+Hex Address : 0x3727B78
+Signature   : void GameEntry__set_Event (UnityGameFramework_Runtime_EventComponent_o* value, const MethodInfo* method);
+
+Hex Address : 0x3727BC8
+Signature   : UnityEngine_Transform_o* GameEntry__get_UIContainer (const MethodInfo* method);
+
+Hex Address : 0x3727C10
+Signature   : void GameEntry__set_UIContainer (UnityEngine_Transform_o* value, const MethodInfo* method);
+
+Hex Address : 0x3727C60
+Signature   : UnityEngine_Canvas_o* GameEntry__get_UICanvas (const MethodInfo* method);
+
+Hex Address : 0x3727CA8
+Signature   : void GameEntry__set_UICanvas (UnityEngine_Canvas_o* value, const MethodInfo* method);
+
+Hex Address : 0x3727CF8
+Signature   : ResourceManager_o* GameEntry__get_Resource (const MethodInfo* method);
+
+Hex Address : 0x3727D40
+Signature   : void GameEntry__set_Resource (ResourceManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3727D90
+Signature   : LocalizationManager_o* GameEntry__get_Localization (const MethodInfo* method);
+
+Hex Address : 0x3727DD8
+Signature   : void GameEntry__set_Localization (LocalizationManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3727E28
+Signature   : NetworkManager_o* GameEntry__get_Network (const MethodInfo* method);
+
+Hex Address : 0x3727E70
+Signature   : void GameEntry__set_Network (NetworkManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3727EC0
+Signature   : SoundComponent_o* GameEntry__get_Sound (const MethodInfo* method);
+
+Hex Address : 0x3727F08
+Signature   : void GameEntry__set_Sound (SoundComponent_o* value, const MethodInfo* method);
+
+Hex Address : 0x3727F58
+Signature   : SettingManager_o* GameEntry__get_Setting (const MethodInfo* method);
+
+Hex Address : 0x3727FA0
+Signature   : void GameEntry__set_Setting (SettingManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3727FF0
+Signature   : XLuaManager_o* GameEntry__get_Lua (const MethodInfo* method);
+
+Hex Address : 0x3728038
+Signature   : void GameEntry__set_Lua (XLuaManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3728088
+Signature   : ShaderManager_o* GameEntry__get_Shader (const MethodInfo* method);
+
+Hex Address : 0x37280D0
+Signature   : void GameEntry__set_Shader (ShaderManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3728120
+Signature   : CustomDataManager_o* GameEntry__get_Data (const MethodInfo* method);
+
+Hex Address : 0x3728168
+Signature   : void GameEntry__set_Data (CustomDataManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x37281B8
+Signature   : PBController_o* GameEntry__get_pb (const MethodInfo* method);
+
+Hex Address : 0x3728200
+Signature   : void GameEntry__set_pb (PBController_o* value, const MethodInfo* method);
+
+Hex Address : 0x3728250
+Signature   : TimerComponent_o* GameEntry__get_Timer (const MethodInfo* method);
+
+Hex Address : 0x3728298
+Signature   : void GameEntry__set_Timer (TimerComponent_o* value, const MethodInfo* method);
+
+Hex Address : 0x37282E8
+Signature   : GlobalDataManager_o* GameEntry__get_GlobalData (const MethodInfo* method);
+
+Hex Address : 0x3728330
+Signature   : void GameEntry__set_GlobalData (GlobalDataManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3728380
+Signature   : SDKManager_o* GameEntry__get_Sdk (const MethodInfo* method);
+
+Hex Address : 0x37283C8
+Signature   : void GameEntry__set_Sdk (SDKManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3728418
+Signature   : DeviceManager_o* GameEntry__get_Device (const MethodInfo* method);
+
+Hex Address : 0x3728460
+Signature   : void GameEntry__set_Device (DeviceManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x37284B0
+Signature   : BuildAnimatorManager_o* GameEntry__get_BuildAnimatorManager (const MethodInfo* method);
+
+Hex Address : 0x37284F8
+Signature   : void GameEntry__set_BuildAnimatorManager (BuildAnimatorManager_o* value, const MethodInfo* method);
+
+Hex Address : 0x3728548
+Signature   : ConfigCache_o* GameEntry__get_ConfigCache (const MethodInfo* method);
+
+Hex Address : 0x3728590
+Signature   : void GameEntry__set_ConfigCache (ConfigCache_o* value, const MethodInfo* method);
+
+Hex Address : 0x37285E0
+Signature   : void GameEntry__Init (const MethodInfo* method);
+
+Hex Address : 0x3728E58
+Signature   : void GameEntry__InitUIContainer (const MethodInfo* method);
+
+Hex Address : 0x3728F70
+Signature   : void GameEntry__RegisterComponent (UnityGameFramework_Runtime_GameFrameworkComponent_o* com, const
+              MethodInfo* method);
+
+Hex Address : 0x3729084
+Signature   : void GameEntry__Shutdown (bool now, bool LuaShutdown, const MethodInfo* method);
+
+Hex Address : 0x3729458
+Signature   : void GameEntry__Update (float elapseSeconds, const MethodInfo* method);
+
+Hex Address : 0x372980C
+Signature   : void GameEntry___cctor (const MethodInfo* method);
+
+Hex Address : 0x4C685B0
+Signature   : Il2CppType*
+
+Hex Address : 0x4C749E0
+Signature   : GameEntry_c*
+
+PS D:\game> .\Get-ClassMethods.ps1 -ClassName "NetworkManager" -FilePath "D:\game\script.json"
+Đang quét file script.json để tìm các hàm của class: NetworkManager...
+==== Các hàm (Methods) liên quan đến NetworkManager ====
+
+Hex Address : 0x122B3B8
+Signature   : void NetworkManager___ctor (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122B470
+Signature   : System_String_o* NetworkManager__GetGameServerUrl (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122B4FC
+Signature   : int32_t NetworkManager__GetGameServerPort (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122B588
+Signature   : System_String_o* NetworkManager__GetUid (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122B614
+Signature   : void NetworkManager__OnUpdate (NetworkManager_o* __this, float elapseSeconds, const MethodInfo* method);
+
+Hex Address : 0x122B68C
+Signature   : void NetworkManager__Shutdown (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122B6F4
+Signature   : int32_t NetworkManager__GetWorldParseVersion (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122B6FC
+Signature   : void NetworkManager__StartWorldParseThread (NetworkManager_o* __this, System_String_o* parseCodeStr,
+              const MethodInfo* method);
+
+Hex Address : 0x122B790
+Signature   : Main_Scripts_Network_FutureManager_o* NetworkManager__getFutureManager (NetworkManager_o* __this, const
+              MethodInfo* method);
+
+Hex Address : 0x122B798
+Signature   : System_String_o* NetworkManager__getCurLine (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122B858
+Signature   : System_String_o* NetworkManager__GetSessionToken (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122B924
+Signature   : bool NetworkManager__GetTcpNoDelay (const MethodInfo* method);
+
+Hex Address : 0x122B9AC
+Signature   : void NetworkManager__SetTcpNoDelay (bool b, const MethodInfo* method);
+
+Hex Address : 0x122BA3C
+Signature   : void NetworkManager__SetUseAsyncTcp (int32_t t, const MethodInfo* method);
+
+Hex Address : 0x122BAC8
+Signature   : int32_t NetworkManager__GetUseAsyncTcp (const MethodInfo* method);
+
+Hex Address : 0x122BB50
+Signature   : void NetworkManager__SetCurProxy (NetworkManager_o* __this, GameKit_Base_INetProxy_o* curProxy, const
+              MethodInfo* method);
+
+Hex Address : 0x122BCC0
+Signature   : bool NetworkManager__IsConnected (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122BD70
+Signature   : void NetworkManager__Send (NetworkManager_o* __this, Sfs2X_Requests_IRequest_o* request, const
+              MethodInfo* method);
+
+Hex Address : 0x122BE64
+Signature   : void NetworkManager__SendLuaMessage (NetworkManager_o* __this, System_String_o* msgId,
+              System_Byte_array* sfsObjBinary, const MethodInfo* method);
+
+Hex Address : 0x122BF90
+Signature   : bool NetworkManager__SendLuaMessageEx (NetworkManager_o* __this, const MethodInfo* method);
+
+Hex Address : 0x122C41C
+Signature   : bool NetworkManager__OnConnection (NetworkManager_o* __this, GameKit_Base_INetProxy_o* proxy,
+              Sfs2X_Core_BaseEvent_o* e, const MethodInfo* method);
+
+Hex Address : 0x122CC50
+Signature   : void NetworkManager__OnConnectionLost (NetworkManager_o* __this, System_String_o* reason,
+              GameKit_Base_INetProxy_o* proxy, const MethodInfo* method);
+
+Hex Address : 0x122CEA4
+Signature   : void NetworkManager__OnLogin (NetworkManager_o* __this, Sfs2X_Core_BaseEvent_o* e, const MethodInfo*
+              method);
+
+Hex Address : 0x122D158
+Signature   : void NetworkManager__OnLoginError (NetworkManager_o* __this, Sfs2X_Core_BaseEvent_o* e, const
+              MethodInfo* method);
+
+Hex Address : 0x122D5BC
+Signature   : void NetworkManager__OnLogout (NetworkManager_o* __this, Sfs2X_Core_BaseEvent_o* e, const MethodInfo*
+              method);
+
+Hex Address : 0x4C68D98
+Signature   : Il2CppType*
+
+Hex Address : 0x4C77398
+Signature   : NetworkManager_c*
