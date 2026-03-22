@@ -113,10 +113,12 @@ fn main() {
                     // --- TEST INJECTION ---
                     if lua_addr != 0 {
                         println!("\n[*] Đã nắm được XLuaManager. Tiến hành Test Injection...");
-                        inject_hello_world(pid, lua_addr);
-                        
+
+                        // Truyền pid, base xịn và lua_addr
+                        inject_hello_world(pid, base, lua_addr);
+
                         println!("[*] Đã Test xong. Dừng vòng lặp để kiểm tra logcat.");
-                        break; 
+                        break;
                     }
                 } else {
                     print!("\r[*] Đang chờ GameEntry khởi tạo (Load game/Network)...     ");
@@ -142,17 +144,17 @@ impl ScriptHandler for LogHandler {
     }
 }
 
-/// Hàm này nhận vào PID của game và Địa chỉ của XLuaManager mà tool ông vừa quét được
-pub fn inject_hello_world(pid: u32, xlua_ptr: usize) {
+pub fn inject_hello_world(pid: u32, base: usize, xlua_ptr: usize) {
     println!("[Frida] Đang khởi tạo Frida và kết nối tới thiết bị...");
 
     // 1. Khởi tạo Frida Context (Unsafe trong 0.17.x) và Device Manager
     let frida = unsafe { Frida::obtain() };
     let device_manager = DeviceManager::obtain(&frida);
-    
+
     // 2. Kết nối tới Frida Server
     // Thử nhiều cách để tìm thiết bị (ID 'tcp', Local, hoặc Remote)
-    let device = device_manager.get_device_by_id("tcp")
+    let device = device_manager
+        .get_device_by_id("tcp")
         .or_else(|_| device_manager.get_device_by_type(frida::DeviceType::USB))
         .or_else(|_| device_manager.get_remote_device("127.0.0.1:27042"));
 
@@ -163,7 +165,12 @@ pub fn inject_hello_world(pid: u32, xlua_ptr: usize) {
             println!("[*] Danh sách thiết bị hiện có:");
             let devices = device_manager.enumerate_all_devices();
             for d in devices {
-                println!("    - ID: {}, Name: {}, Type: {:?}", d.get_id(), d.get_name(), d.get_type());
+                println!(
+                    "    - ID: {}, Name: {}, Type: {:?}",
+                    d.get_id(),
+                    d.get_name(),
+                    d.get_type()
+                );
             }
             panic!("DeviceLookupFailed");
         }
@@ -175,36 +182,53 @@ pub fn inject_hello_world(pid: u32, xlua_ptr: usize) {
         .attach(pid)
         .expect("Không thể Attach vào game. Frida Server đã chạy chưa?");
 
-    // 3. Viết mã JavaScript Payload
+    // 4. Viết mã JavaScript Payload (Sử dụng Hex Format chuẩn chỉ)
     let js_code = format!(
         r#"
         console.log("[JS] Frida đã chui thành công vào Game!");
 
-        // Tọa độ truyền từ Rust
-        var xlua_ptr = ptr("{}"); 
-        var SafeDoStringAddr = Module.findBaseAddress("libil2cpp.so").add(0x1DB1C10);
+        // Tọa độ truyền từ Rust (Dùng format Hex chuẩn 0x...)
+        var xlua_ptr = ptr("0x{:X}"); 
+        var real_base = ptr("0x{:X}");
+        var SafeDoStringAddr = real_base.add(0x1DB1C10);
 
         console.log("[JS] XLuaManager: " + xlua_ptr);
+        console.log("[JS] Real Base: " + real_base);
         console.log("[JS] SafeDoString Address: " + SafeDoStringAddr);
 
-        // --- BÍ KÍP TẠO SYSTEM.STRING CHO IL2CPP ---
-        var il2cpp_string_new_addr = Module.findExportByName("libil2cpp.so", "il2cpp_string_new");
-        var il2cpp_string_new = new NativeFunction(il2cpp_string_new_addr, 'pointer', ['pointer']);
+        // --- BÍ KÍP TÌM HÀM il2cpp_string_new ---
+        // Lấy export từ bản mồi nhử công khai
+        var fake_export = Module.findExportByName("libil2cpp.so", "il2cpp_string_new");
+        if (fake_export == null) {{
+            console.log("[-] Lỗi: Không tìm thấy export il2cpp_string_new!");
+        }} else {{
+            // Tính Offset và áp dụng vào Base thật
+            var fake_base = Module.findBaseAddress("libil2cpp.so");
+            var export_offset = fake_export.sub(fake_base);
+            var real_il2cpp_string_new = real_base.add(export_offset);
+            
+            console.log("[JS] il2cpp_string_new chuẩn nằm tại: " + real_il2cpp_string_new);
 
-        var luaCode = "CS.UnityEngine.Debug.LogWarning('====== HELLO WORLD TỪ RUST & FRIDA ======');";
-        
-        var c_string_ptr = Memory.allocUtf8String(luaCode);
-        var cs_string_ptr = il2cpp_string_new(c_string_ptr);
+            // Khởi tạo hàm
+            var il2cpp_string_new = new NativeFunction(real_il2cpp_string_new, 'pointer', ['pointer']);
+            var SafeDoString = new NativeFunction(SafeDoStringAddr, 'void', ['pointer', 'pointer', 'pointer']);
 
-        // --- GỌI HÀM GAME ---
-        var SafeDoString = new NativeFunction(SafeDoStringAddr, 'void', ['pointer', 'pointer', 'pointer']);
+            // Nội dung Lua muốn thực thi
+            var luaCode = "CS.UnityEngine.Debug.LogWarning('====== HELLO WORLD TU RUST & FRIDA ======');";
+            
+            // Cấp phát chuỗi C và chuyển thành chuỗi IL2CPP
+            var c_string_ptr = Memory.allocUtf8String(luaCode);
+            var cs_string_ptr = il2cpp_string_new(c_string_ptr);
 
-        console.log("[JS] Đang thực thi mã Lua...");
-        SafeDoString(xlua_ptr, cs_string_ptr, ptr(0));
+            console.log("[JS] Đang BÓP CÒ thực thi mã Lua...");
+            
+            // Gọi hàm game (Tham số 3 truyền NULL / 0)
+            SafeDoString(xlua_ptr, cs_string_ptr, ptr(0));
 
-        console.log("[JS] Thực thi thành công!");
-    "#,
-        xlua_ptr
+            console.log("[JS] THỰC THI THÀNH CÔNG! Hãy kiểm tra Logcat!");
+        }}
+        "#,
+        xlua_ptr, base
     );
 
     // 4. Bơm (Inject) JS vào game
