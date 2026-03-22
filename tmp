@@ -234,3 +234,287 @@ Signature   : Il2CppType*
 
 Hex Address : 0x4C77398
 Signature   : NetworkManager_c*
+
+
+   - PID Game: 3314
+    - libil2cpp.so Base: 0x763866C00000
+[*] Đang yêu cầu Agent quét tìm Base thực sự (Bypass Packer)...
+    
+    [*] --- BẮT ĐẦU QUÉT TÌM BẢN THỂ THẬT CỦA IL2CPP ---
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x3318000 - 0x46CF000 | Kích thước: 19 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/lib/arm64/libunity.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x4822000 - 0x5318000 | Kích thước: 10 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x5D18000 - 0x5E56000 | Kích thước: 1 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/lib/arm64/libsqlite3.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x5E6D000 - 0xB318000 | Kích thước: 84 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0xD31C000 - 0xD462000 | Kích thước: 1 MB | Path: /system/lib64/arm64/nb/libtcb.so 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0xD48C000 - 0x1131C000 | Kích thước: 62 MB | Path: [anon:Mem_0x20000000]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x12C00000 - 0x14880000 | Kích thước: 28 MB | Path: /dev/ashmem/dalvik-main       
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x148C0000 - 0x2AC00000 | Kích thước: 355 MB | Path: /dev/ashmem/dalvik-main      
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x42FE9000 - 0x44FE9000 | Kích thước: 32 MB | Path: /dev/ashmem/dalvik-data-code-cache
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x44FE9000 - 0x46FE9000 | Kích thước: 32 MB | Path: /dev/ashmem/dalvik-jit-code-cache
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x6F7C8000 - 0x6FAA1000 | Kích thước: 2 MB | Path: /data/dalvik-cache/x86_64/system@framework@boot.art
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x6FAB7000 - 0x6FBEC000 | Kích thước: 1 MB | Path: /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x6FDA3000 - 0x70838000 | Kích thước: 10 MB | Path: /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x70898000 - 0x709B7000 | Kích thước: 1 MB | Path: /data/dalvik-cache/x86_64/system@framework@boot-telephony-common.art
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x70A0A000 - 0x70B1A000 | Kích thước: 1 MB | Path: /system/framework/x86_64/boot.oat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x70B1A000 - 0x70E9F000 | Kích thước: 3 MB | Path: /system/framework/x86_64/boot.oat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x70EA0000 - 0x7131F000 | Kích thước: 4 MB | Path: /system/framework/boot.vdex    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x71399000 - 0x714F5000 | Kích thước: 1 MB | Path: /system/framework/x86_64/boot-core-libart.oat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x714F6000 - 0x717EE000 | Kích thước: 2 MB | Path: /system/framework/boot-core-libart.vdex
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x719B3000 - 0x71AF5000 | Kích thước: 1 MB | Path: /system/framework/boot-bouncycastle.vdex
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x71B20000 - 0x71C42000 | Kích thước: 1 MB | Path: /system/framework/boot-apache-xml.vdex
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x71D5C000 - 0x7211F000 | Kích thước: 3 MB | Path: /system/framework/x86_64/boot-framework.oat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7211F000 - 0x72BFA000 | Kích thước: 10 MB | Path: /system/framework/x86_64/boot-framework.oat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x72BFC000 - 0x73FB4000 | Kích thước: 19 MB | Path: /system/framework/boot-framework.vdex
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x74038000 - 0x741A2000 | Kích thước: 1 MB | Path: /system/framework/x86_64/boot-telephony-common.oat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x741A3000 - 0x74477000 | Kích thước: 2 MB | Path: /system/framework/boot-telephony-common.vdex
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x74518000 - 0x74665000 | Kích thước: 1 MB | Path: /dev/ashmem/dalvik-zygote      
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x74672000 - 0x77D19000 | Kích thước: 54 MB | Path: /dev/ashmem/dalvik-non        
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x77D19000 - 0x78518000 | Kích thước: 7 MB | Path: /dev/ashmem/dalvik-non
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x78518000 - 0x786E8000 | Kích thước: 1 MB | Path: /dev/ashmem/dalvik-/data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/oat/x86_64/base.art
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763720000000 - 0x763720400000 | Kích thước: 4 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763720400000 - 0x763730000000 | Kích thước: 252 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763733A00000 - 0x763734A00000 | Kích thước: 16 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763734A00000 - 0x763735000000 | Kích thước: 6 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763735063000 - 0x7637351CA000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637351FC000 - 0x763735F59000 | Kích thước: 13 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763736000000 - 0x763737600000 | Kích thước: 22 MB | Path: [anon:libc_malloc]    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763737ED2000 - 0x76373820E000 | Kích thước: 3 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763738398000 - 0x7637389F3000 | Kích thước: 6 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637389F6000 - 0x763738E4C000 | Kích thước: 4 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763738ED3000 - 0x763738FD4000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763738FD6000 - 0x7637390DA000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637390DC000 - 0x7637391E0000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637391E1000 - 0x7637392E2000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637392E7000 - 0x7637393E8000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637393EA000 - 0x7637394EE000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637394F0000 - 0x7637395F4000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637395F6000 - 0x7637396FA000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637396FC000 - 0x763739800000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763739800000 - 0x76373F200000 | Kích thước: 90 MB | Path: [anon:libc_malloc]    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76373F2DD000 - 0x76373F3E1000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76373F3E1000 - 0x76373F8DA000 | Kích thước: 4 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76373F8DD000 - 0x76373FABB000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76373FB66000 - 0x76373FFF7000 | Kích thước: 4 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76373FFFA000 - 0x763741002000 | Kích thước: 16 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763741002000 - 0x763750000000 | Kích thước: 239 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763750000000 - 0x7637508FD000 | Kích thước: 8 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637508FD000 - 0x763754D9C000 | Kích thước: 68 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763754D9C000 - 0x7637596A4000 | Kích thước: 73 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637596A4000 - 0x763760000000 | Kích thước: 105 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763760000000 - 0x763762600000 | Kích thước: 38 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763762600000 - 0x763770000000 | Kích thước: 218 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763770000000 - 0x763780000000 | Kích thước: 256 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637802FC000 - 0x763780400000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763780400000 - 0x763780800000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763780800000 - 0x763780C00000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763780C00000 - 0x763781800000 | Kích thước: 12 MB | Path: [anon:libc_malloc]    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637819DE000 - 0x763781AE2000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763781AE4000 - 0x763781BE8000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763781BEA000 - 0x763781CEE000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763781CF0000 - 0x763781DF4000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763781DF6000 - 0x763781EFA000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763782000000 - 0x763782400000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76378240B000 - 0x76378250F000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76378250F000 - 0x763782790000 | Kích thước: 2 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763782792000 - 0x76378295C000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637829A0000 - 0x763782E00000 | Kích thước: 4 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763782E00000 - 0x763783200000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637832F8000 - 0x7637833FC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637833FD000 - 0x7637834FE000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763783600000 - 0x763784600000 | Kích thước: 16 MB | Path: [anon:libc_malloc]    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637847E5000 - 0x7637848E9000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763784CFF000 - 0x763784E00000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763784E00000 - 0x763785200000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763785200000 - 0x763785600000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637856C4000 - 0x763785963000 | Kích thước: 2 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763785965000 - 0x763785C95000 | Kích thước: 3 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763785C97000 - 0x763786E00000 | Kích thước: 17 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763786E00000 - 0x763787200000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763787C00000 - 0x763787E00000 | Kích thước: 2 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763787E4F000 - 0x76378CBE4000 | Kích thước: 77 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/lib/arm64/libil2cpp.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76378CBE4000 - 0x76378E000000 | Kích thước: 20 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/lib/arm64/libunity.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76378E000000 - 0x763790000000 | Kích thước: 32 MB | Path: /dev/ashmem/AudioFlinger::Client(3314)
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763790000000 - 0x763791000000 | Kích thước: 16 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763791000000 - 0x7637A0000000 | Kích thước: 240 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637A0000000 - 0x7637A3000000 | Kích thước: 48 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637A3000000 - 0x7637B0000000 | Kích thước: 208 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637B0000000 - 0x7637B0536000 | Kích thước: 5 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637B0536000 - 0x7637B0800000 | Kích thước: 2 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637B0C40000 - 0x7637C0000000 | Kích thước: 243 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637C0000000 - 0x7637C0200000 | Kích thước: 2 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637C0200000 - 0x7637D0000000 | Kích thước: 254 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637D0000000 - 0x7637D1000000 | Kích thước: 16 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637D1000000 - 0x7637E0000000 | Kích thước: 240 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637E0000000 - 0x7637E1000000 | Kích thước: 16 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637E1000000 - 0x7637F0000000 | Kích thước: 240 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637F0000000 - 0x7637F1002000 | Kích thước: 16 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7637F1002000 - 0x763800000000 | Kích thước: 239 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763800000000 - 0x763800602000 | Kích thước: 6 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763800602000 - 0x763810000000 | Kích thước: 249 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763810000000 - 0x763810202000 | Kích thước: 2 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763810202000 - 0x763820000000 | Kích thước: 253 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763820000000 - 0x763820202000 | Kích thước: 2 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763820202000 - 0x763830000000 | Kích thước: 253 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763830000000 - 0x763834000000 | Kích thước: 64 MB | Path: [ẨN DANH / ANONYMOUS] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763834000000 - 0x763840000000 | Kích thước: 192 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763840000000 - 0x763840400000 | Kích thước: 4 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763840400000 - 0x763850000000 | Kích thước: 252 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763850000000 - 0x763850100000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763850100000 - 0x763860000000 | Kích thước: 255 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386028E000 - 0x763860392000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763860694000 - 0x763860800000 | Kích thước: 1 MB | Path: /system/lib64/arm64/nb/libtcb.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763860800000 - 0x763860A00000 | Kích thước: 2 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763860AFB000 - 0x763860BFC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763860BFD000 - 0x763860CFE000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763860CFF000 - 0x763860E00000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763860E00000 - 0x763861800000 | Kích thước: 10 MB | Path: [anon:libc_malloc]    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386188F000 - 0x763861990000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763861991000 - 0x763861A92000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763861A93000 - 0x763861B9C000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763861B9D000 - 0x763861CA6000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763861DA6000 - 0x763861EAA000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763861EAB000 - 0x763861FAC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763861FAD000 - 0x7638620AE000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638620AF000 - 0x7638621B0000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638621B1000 - 0x7638622B2000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638622B3000 - 0x7638623B4000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638623B5000 - 0x7638624B6000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638624B7000 - 0x7638625B8000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638625B9000 - 0x7638626BA000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638626BB000 - 0x7638627BC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638627BD000 - 0x7638628BE000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638628C0000 - 0x7638629C0000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638629C1000 - 0x763862AC2000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763862AC4000 - 0x763862BC4000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763862BC5000 - 0x763862CC6000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763862CC8000 - 0x763862DC8000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763862DC9000 - 0x763862ECA000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763862ECC000 - 0x763862FCC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763862FCD000 - 0x7638630CE000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638630D0000 - 0x7638631D0000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638631D1000 - 0x7638632D2000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638632D3000 - 0x7638633D4000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638633D5000 - 0x7638634D6000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638634D8000 - 0x7638635D8000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638635D9000 - 0x7638636DA000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638636DB000 - 0x7638637DC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638637DD000 - 0x7638638DE000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638638DF000 - 0x7638639E0000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638639E1000 - 0x763863AE2000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763863AE4000 - 0x763863BE4000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763863BE5000 - 0x763863CE6000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763863CE7000 - 0x763863DE8000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763863DE9000 - 0x763863EEA000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763863EEC000 - 0x763863FEC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763863FED000 - 0x7638640EE000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638640EF000 - 0x7638641F0000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638641F1000 - 0x7638642F2000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638642F3000 - 0x7638643F4000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638643F5000 - 0x7638644F6000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638644F7000 - 0x7638645F8000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638645F9000 - 0x7638646FA000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638646FB000 - 0x7638647FC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638647FD000 - 0x7638648FE000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638648FF000 - 0x763864A00000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763864A00000 - 0x763865200000 | Kích thước: 8 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763865201000 - 0x763865302000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763865400000 - 0x763865E00000 | Kích thước: 10 MB | Path: [anon:libc_malloc]    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763865E3C000 - 0x763866AFE000 | Kích thước: 12 MB | Path: /data/media/0/Android/data/com.readygo.barrel.gphh/files/il2cpp/Metadata/global-metadata.dat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763866AFF000 - 0x763866C00000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763866C00000 - 0x76386B412000 | Kích thước: 72 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/lib/arm64/libil2cpp.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386B412000 - 0x76386B6EB000 | Kích thước: 2 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/lib/arm64/libil2cpp.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386B6EB000 - 0x76386B996000 | Kích thước: 2 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/lib/arm64/libil2cpp.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386B996000 - 0x76386BBC6000 | Kích thước: 2 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386BC00000 - 0x76386BE00000 | Kích thước: 2 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386BE9C000 - 0x76386BFA0000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386BFF9000 - 0x76386C0FA000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386C0FB000 - 0x76386C1FC000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386C1FD000 - 0x76386C2FE000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386C2FF000 - 0x76386C400000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386C400000 - 0x76386C800000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386C8E8000 - 0x76386C9E9000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386C9E9000 - 0x76386E9E9000 | Kích thước: 32 MB | Path: /dev/fastpipe
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386EAFF000 - 0x76386EC00000 | Kích thước: 1 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386EC00000 - 0x76386F600000 | Kích thước: 10 MB | Path: [anon:libc_malloc]    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386F812000 - 0x76386F916000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386F918000 - 0x76386FA1C000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386FA1D000 - 0x76386FE1E000 | Kích thước: 4 MB | Path: [anon:Mem_0x10000004]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76386FF2F000 - 0x76387002F000 | Kích thước: 1 MB | Path: [anon:Mem_0x10002000]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638703FE000 - 0x763871F1C000 | Kích thước: 27 MB | Path: [anon:Mem_0x10002000] 
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763872028000 - 0x763872128000 | Kích thước: 1 MB | Path: [anon:Mem_0x10001000]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76387212E000 - 0x763872232000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763872440000 - 0x763872544000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76387264C000 - 0x763872750000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763872858000 - 0x76387295C000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76387295E000 - 0x763872A62000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763872A64000 - 0x763872B68000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763872B6A000 - 0x763872C6E000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763872D76000 - 0x763872E7A000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763872E7C000 - 0x763872F80000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763872F82000 - 0x763873086000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763873088000 - 0x76387318C000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76387318E000 - 0x763873292000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76387339A000 - 0x76387349E000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638734A0000 - 0x7638735A4000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638735A6000 - 0x7638736AA000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638736AC000 - 0x7638737B0000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638738AE000 - 0x7638739BA000 | Kích thước: 1 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/oat/x86_64/base.odex
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638739BA000 - 0x763873C71000 | Kích thước: 2 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/oat/x86_64/base.odex
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763873C79000 - 0x763874BF1000 | Kích thước: 15 MB | Path: /data/app/com.readygo.barrel.gphh-SxEYZAlAXSSW54kqP_c0kA==/oat/x86_64/base.vdex
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763874C00000 - 0x763875600000 | Kích thước: 10 MB | Path: [anon:libc_malloc]    
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763875A6E000 - 0x763875B72000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763875B74000 - 0x763875C78000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763875C7A000 - 0x763875D7E000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763875D80000 - 0x763875E84000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763876181000 - 0x763885CAB000 | Kích thước: 251 MB | Path: [ẨN DANH / ANONYMOUS]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763885F8B000 - 0x76388614D000 | Kích thước: 1 MB | Path: /system/vendor/lib64/libvulkan_enc.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638861AE000 - 0x7638868F4000 | Kích thước: 7 MB | Path: /system/framework/framework-res.apk
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638868F4000 - 0x763887063000 | Kích thước: 7 MB | Path: /system/fonts/NotoColorEmoji.ttf
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763887063000 - 0x763888800000 | Kích thước: 23 MB | Path: /system/fonts/NotoSerifCJK-Regular.ttc
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763888800000 - 0x763888A00000 | Kích thước: 2 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763888CDF000 - 0x763889EAF000 | Kích thước: 17 MB | Path: /system/fonts/NotoSansCJK-Regular.ttc
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388A200000 - 0x76388A400000 | Kích thước: 2 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388A4FD000 - 0x76388BBF4000 | Kích thước: 22 MB | Path: /system/usr/icu/icudt60l.dat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388BCFC000 - 0x76388BE00000 | Kích thước: 1 MB | Path: [ẨN DANH / ANONYMOUS]  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388BE00000 - 0x76388C000000 | Kích thước: 2 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388C2F3000 - 0x76388C5A1000 | Kích thước: 2 MB | Path: /system/lib64/libart-compiler.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388C6F0000 - 0x76388DDE7000 | Kích thước: 22 MB | Path: /system/usr/icu/icudt60l.dat
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388E0B5000 - 0x76388E240000 | Kích thước: 1 MB | Path: [anon:.bss]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388E882000 - 0x76388EAE1000 | Kích thước: 2 MB | Path: /system/lib64/libhoudini.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388EAE1000 - 0x76388EDDC000 | Kích thước: 2 MB | Path: /system/lib64/libhoudini.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388EEAB000 - 0x76388F0DC000 | Kích thước: 2 MB | Path: [anon:.bss]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388F314000 - 0x76388F514000 | Kích thước: 2 MB | Path: /dev/ashmem/dalvik-rb  
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388F514000 - 0x76388FD14000 | Kích thước: 8 MB | Path: /dev/ashmem/dalvik-concurrent
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76388FD14000 - 0x763890515000 | Kích thước: 8 MB | Path: /dev/ashmem/dalvik-live
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763890515000 - 0x763890D16000 | Kích thước: 8 MB | Path: /dev/ashmem/dalvik-allocation
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763890D16000 - 0x763891117000 | Kích thước: 4 MB | Path: /dev/ashmem/dalvik-card
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763891117000 - 0x763891D17000 | Kích thước: 12 MB | Path: /dev/ashmem/dalvik-region
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763891D17000 - 0x763891E17000 | Kích thước: 1 MB | Path: /dev/ashmem/dalvik-allocspace
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763891E17000 - 0x763891F17000 | Kích thước: 1 MB | Path: /dev/ashmem/dalvik-allocspace
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763891F4E000 - 0x763892589000 | Kích thước: 6 MB | Path: /system/lib64/libart.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763892600000 - 0x763892A00000 | Kích thước: 4 MB | Path: [anon:libc_malloc]     
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763892AE3000 - 0x7638C23A0000 | Kích thước: 760 MB | Path: [anon:cfi
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638C23A1000 - 0x7638CDCA2000 | Kích thước: 185 MB | Path: [anon:cfi
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638CDCA8000 - 0x7638D2AC8000 | Kích thước: 78 MB | Path: [anon:cfi
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7638D2AC9000 - 0x763912ADF000 | Kích thước: 1024 MB | Path: [anon:cfi
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763913157000 - 0x76391365C000 | Kích thước: 5 MB | Path: /system/lib64/libpdfium.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763913906000 - 0x763913B5F000 | Kích thước: 2 MB | Path: /system/lib64/libicui18n.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763913C09000 - 0x7639143D2000 | Kích thước: 7 MB | Path: /system/lib64/libhwui.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x76391482E000 - 0x763914968000 | Kích thước: 1 MB | Path: /system/lib64/libcrypto.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763914A10000 - 0x7639154E2000 | Kích thước: 10 MB | Path: [anon:.bss]
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763915502000 - 0x7639156B7000 | Kích thước: 1 MB | Path: /system/lib64/libstagefright.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763915ECB000 - 0x763916100000 | Kích thước: 2 MB | Path: /system/lib64/libandroid_runtime.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7639168CF000 - 0x763916A65000 | Kích thước: 1 MB | Path: /system/lib64/libicuuc.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763916BD2000 - 0x763916CF6000 | Kích thước: 1 MB | Path: /system/lib64/libsqlite.so
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x763917B58000 - 0x763917C9E000 | Kích thước: 1 MB | Path: /system/bin/linker64   
+    [?] Phát hiện vùng nhớ đáng ngờ: 0x7FFD3DBF4000 - 0x7FFD3E3F3000 | Kích thước: 7 MB | Path: [stack]
+    [*] --- KẾT THÚC QUÉT ---
+[+] GameEntry Static Fields: 0x763888A3CF20
+    - GameEntry Base: 0x763888A3CF20
+
+[*] BẮT ĐẦU VÒNG LẶP AUTO...
+[LOG] LuaMgr: 0x76386BE3DF00 | Country: US | Net Initialized: true
+[LOG] LuaMgr: 0x76386BE3DF00 | Country: US | Net Initialized: true
+[LOG] LuaMgr: 0x76386BE3DF00 | Country: US | Net Initialized: true
+error: process didn't exit successfully: `target\release\lastz_auto_host.exe --instance 0` (exit code: 0xc000013a, STATUS_CONTROL_C_EXIT)
+PS C:\Users\khong\Documents\lastz_auto_core> 
